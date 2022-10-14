@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "pandoc",
+            "args": [
+                "${relativeFile}",
+                "-o",
+                "${relativeFileDirname}/${fileBasenameNoExtension}.pdf",
+                "--pdf-engine=lualatex",
+                "-V",
+                "linkcolor=blue",
+                "-V",
+                "documentclass=ltjsarticle",
+                "-V",
+                "luatexjapresetoptions=fonts-noto-cjk"
+            ]
+        }
+    ]
+}

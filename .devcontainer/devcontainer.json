@@ -1,0 +1,6 @@
+{
+    "name": "Pandoc",
+    "build": {
+        "dockerfile": "Dockerfile"
+    }
+}
