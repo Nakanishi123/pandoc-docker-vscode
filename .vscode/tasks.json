@@ -6,9 +6,12 @@
             "type": "shell",
             "command": "pandoc",
             "args": [
-                "${relativeFile}",
-                "-o",
-                "${relativeFileDirname}/${fileBasenameNoExtension}.pdf",
+                "-N", //章番号をつける
+                "-F", // 相互参照をできるようにする
+                "pandoc-crossref",
+                "${fileBasename}", // 入力ファイル
+                "-o", // 出力ファイル
+                "${fileBasenameNoExtension}.pdf",
                 "--pdf-engine=lualatex",
                 "-V",
                 "linkcolor=blue",
@@ -16,7 +19,10 @@
                 "documentclass=ltjsarticle",
                 "-V",
                 "luatexjapresetoptions=fonts-noto-cjk"
-            ]
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
         }
     ]
 }
